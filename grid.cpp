@@ -23,9 +23,12 @@ auto grid::insert(coordinates const& key, unsigned value)
 
 void grid::set(coordinates const& key, unsigned value)
 {
-	auto inserted = insert(key, value);
-	if (!inserted.second)
-		std::map<coordinates, unsigned>::operator[](key) = value;
+	if (value)
+	{
+		auto inserted = insert(key, value);
+		if (!inserted.second)
+			inserted.first->second = value;
+	}
 }
 
 size_t grid::width() const
