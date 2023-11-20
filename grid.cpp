@@ -10,15 +10,15 @@ grid::grid(size_t width, size_t height):
 
 unsigned grid::operator[](coordinates const& key) const
 {
-	auto found = std::map<coordinates, unsigned>::find(key);
-	if (found != std::map<coordinates, unsigned>::end())
+	auto found = container::find(key);
+	if (found != container::end())
 		return found->second;
 	return 0u;
 }
 
 auto grid::insert(coordinates const& key, unsigned value)
 {
-	return std::map<coordinates, unsigned>::insert(std::make_pair(key, value));
+	return container::insert(std::make_pair(key, value));
 }
 
 void grid::set(coordinates const& key, unsigned value)
