@@ -6,7 +6,6 @@ struct coordinates
 {
 	unsigned long long x;
 	unsigned long long y;
-	coordinates(unsigned long long, unsigned long long);
 };
 
 template<>
